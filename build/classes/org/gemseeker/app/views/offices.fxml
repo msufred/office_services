@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <items>
+          <Button fx:id="btnAdd" mnemonicParsing="false" />
+            <Button fx:id="btnEdit" disable="true" mnemonicParsing="false" />
+            <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" />
+            <Button fx:id="btnRefresh" mnemonicParsing="false" />
+        </items>
+      </ToolBar>
+      <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="colCode" prefWidth="100.0" text="Code" />
+          <TableColumn fx:id="colName" prefWidth="400.0" text="Office Name" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

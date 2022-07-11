@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox spacing="2.0">
+         <children>
+            <MenuButton fx:id="btnMenu" mnemonicParsing="false" text="Add">
+              <items>
+                <MenuItem fx:id="menuAddVehicle" mnemonicParsing="false" text="Add Vehicle" />
+                <MenuItem fx:id="menuAddTask" disable="true" mnemonicParsing="false" text="Add Task" />
+              </items>
+            </MenuButton>
+            <Button fx:id="btnEdit" disable="true" mnemonicParsing="false" />
+            <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" />
+            <Button fx:id="btnRefresh" mnemonicParsing="false" />
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </HBox>
+      <TableView fx:id="tasksTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Vehicle" />
+          <TableColumn prefWidth="75.0" text="Driver" />
+            <TableColumn prefWidth="75.0" text="Passenger" />
+            <TableColumn prefWidth="107.0" text="Destination (Kms)" />
+            <TableColumn prefWidth="78.0" text="Time Out" />
+            <TableColumn prefWidth="76.0" text="Time In" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

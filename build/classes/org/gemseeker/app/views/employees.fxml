@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="1000.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox alignment="CENTER_LEFT" spacing="2.0">
+            <children>
+                <Button fx:id="btnAdd" mnemonicParsing="false" />
+                <Button fx:id="btnEdit" disable="true" mnemonicParsing="false" />
+                <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" />
+                <Button fx:id="btnRefresh" mnemonicParsing="false" />
+            <Button fx:id="btnImport" mnemonicParsing="false" text="Import">
+               <HBox.margin>
+                  <Insets left="8.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnMakeId" mnemonicParsing="false" text="Create ID">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Label text="Status">
+               <HBox.margin>
+                  <Insets left="16.0" />
+               </HBox.margin>
+            </Label>
+            <ComboBox fx:id="cbStatus" promptText="Select Status" />
+            <Label text="Office">
+               <HBox.margin>
+                  <Insets left="8.0" />
+               </HBox.margin>
+            </Label>
+            <ComboBox fx:id="cbOffice" prefWidth="150.0" promptText="Select Office" />
+            </children>
+            <padding>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+            </padding>
+        </HBox>
+        <SplitPane fx:id="splitPane" dividerPositions="0.7" VBox.vgrow="ALWAYS">
+            <items>
+            <VBox>
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="4.0">
+                     <children>
+                            <Label fx:id="lblSearch">
+                           <padding>
+                              <Insets left="8.0" right="8.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                            <TextField fx:id="tfSearch" minWidth="240.0" promptText="Search Employee">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <CheckBox fx:id="showDetails" mnemonicParsing="false" selected="true" text="Show Details">
+                           <HBox.margin>
+                              <Insets left="8.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
+                  </HBox>
+                      <TableView fx:id="employeesTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                          <columns>
+                              <TableColumn fx:id="colStatus" prefWidth="75.0" styleClass="table-cell-align-center" text="Status" />
+                              <TableColumn fx:id="colName" prefWidth="200.0" text="Name" />
+                              <TableColumn fx:id="colPosition" prefWidth="200.0" text="Position" />
+                              <TableColumn fx:id="colOffice" prefWidth="200.0" text="Office" />
+                          </columns>
+                      </TableView>
+               </children>
+            </VBox>
+                <StackPane>
+                    <children>
+                        <Label text="No Employee Selected" />
+                        <ScrollPane fx:id="detailsGroup" fitToHeight="true" fitToWidth="true">
+                            <content>
+                                <VBox>
+                                    <children>
+                                        <StackPane prefHeight="200.0" prefWidth="200.0" styleClass="group-even">
+                                            <children>
+                                                <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@image-placeholder.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fx:id="imageView" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                <ImageView fx:id="signatureImageView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                    <StackPane.margin>
+                                                        <Insets left="120.0" top="120.0" />
+                                                    </StackPane.margin>
+                                                </ImageView>
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                            <padding>
+                                                <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                                            </padding>
+                                        </StackPane>
+                              <HBox styleClass="group-even">
+                                 <children>
+                                    <Label style="-fx-font-weight: bold;" text="Personal Information" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="16.0" right="16.0" />
+                                 </padding>
+                              </HBox>
+                                        <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                            <children>
+                                                <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Full Name" />
+                                                <Label fx:id="lblName" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                            </padding>
+                                        </HBox>
+                                        <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                            <children>
+                                                <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Birthday" />
+                                                <Label fx:id="lblBirthday" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                            </padding>
+                                        </HBox>
+                                        <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                            <children>
+                                                <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Address" />
+                                                <Label fx:id="lblAddress" wrapText="true" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                            </padding>
+                                        </HBox>
+                              <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                 <children>
+                                    <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Phone" />
+                                    <Label fx:id="lblPhone" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox styleClass="group-even">
+                                 <children>
+                                    <Label style="-fx-font-weight: bold;" text="Employment Information" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="16.0" right="16.0" top="16.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                 <children>
+                                    <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Office" />
+                                    <Label fx:id="lblOffice" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                 <children>
+                                    <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Position" />
+                                    <Label fx:id="lblPosition" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                 <children>
+                                    <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Status" />
+                                    <Label fx:id="lblStatus" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                 <children>
+                                    <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Date Hired" />
+                                    <Label fx:id="lblHired" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                 <children>
+                                    <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Date Resigned" />
+                                    <Label fx:id="lblResigned" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                 <children>
+                                    <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Date Retired" />
+                                    <Label fx:id="lblRetired" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                 </padding>
+                              </HBox>
+                                        <HBox styleClass="group-even">
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                            <children>
+                                                <Label style="-fx-font-weight: bold;" text="Emergency Information" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="4.0" left="16.0" right="16.0" top="16.0" />
+                                            </padding>
+                                        </HBox>
+                                        <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                            <children>
+                                                <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Contact Person" />
+                                                <Label fx:id="lblEPerson" wrapText="true" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                            </padding>
+                                        </HBox>
+                                        <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                            <children>
+                                                <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Address" />
+                                                <Label fx:id="lblEAddress" wrapText="true" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                            </padding>
+                                        </HBox>
+                                        <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                            <children>
+                                                <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="Phone" />
+                                                <Label fx:id="lblEPhone" wrapText="true" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                            </padding>
+                                        </HBox>
+                              <HBox styleClass="group-even">
+                                 <children>
+                                    <Label style="-fx-font-weight: bold;" text="Other" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="16.0" right="16.0" top="16.0" />
+                                 </padding>
+                              </HBox>
+                                        <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                            <children>
+                                                <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="TIN" />
+                                                <Label fx:id="lblTin" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                            </padding>
+                                        </HBox>
+                                        <HBox prefWidth="200.0" spacing="8.0" styleClass="group-odd">
+                                            <children>
+                                                <Label minWidth="100.0" style="-fx-text-fill: #777777;" text="GSIS" />
+                                                <Label fx:id="lblGsis" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
+                                            </padding>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </StackPane>
+            </items>
+        </SplitPane>
+    </children>
+</VBox>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="menuOffices" mnemonicParsing="false" text="Offices..." />
+                  <MenuItem fx:id="menuWarehouses" mnemonicParsing="false" text="Warehouses..." />
+                  <MenuItem fx:id="menuPositions" mnemonicParsing="false" text="Positions..." />
+                  <MenuItem fx:id="menuExit" mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox prefWidth="200.0" spacing="4.0">
+         <children>
+            <ToggleButton fx:id="toggleEmployees" mnemonicParsing="false" prefHeight="32.0" prefWidth="500.0" selected="true" text="Human Resource" HBox.hgrow="ALWAYS">
+               <toggleGroup>
+                  <ToggleGroup fx:id="toggleGroup" />
+               </toggleGroup>
+            </ToggleButton>
+            <ToggleButton fx:id="toggleVehicles" mnemonicParsing="false" prefHeight="32.0" prefWidth="500.0" text="Vehicles" toggleGroup="$toggleGroup" HBox.hgrow="ALWAYS" />
+            <ToggleButton fx:id="toggleInventory" mnemonicParsing="false" prefHeight="32.0" prefWidth="500.0" text="Inventory" toggleGroup="$toggleGroup" HBox.hgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </HBox>
+      <Separator prefWidth="200.0" />
+      <StackPane fx:id="container" prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+      <Separator prefWidth="200.0" />
+      <HBox prefWidth="200.0" spacing="4.0">
+         <children>
+            <Label text="Status" />
+            <ProgressBar fx:id="progressBar" prefWidth="200.0" visible="false" />
+            <Label fx:id="progressLabel" text="Please wait..." visible="false" />
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

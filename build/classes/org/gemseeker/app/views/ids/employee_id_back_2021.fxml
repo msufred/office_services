@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1013.0" prefWidth="640.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="1013.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@employee_id_back_2021.png" />
+         </image>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+      </ImageView>
+      <Label fx:id="lblAddress" wrapText="true">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="64.0" right="48.0" top="210.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblBirthday">
+         <font>
+            <Font name="Calibri Bold" size="32.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="320.0" top="312.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblTin">
+         <font>
+            <Font name="Calibri Bold" size="32.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="320.0" top="348.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblGsis">
+         <font>
+            <Font name="Calibri Bold" size="32.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="320.0" top="382.0" />
+         </StackPane.margin>
+      </Label>
+      <HBox alignment="CENTER">
+         <children>
+            <Label fx:id="lblEPerson" text="Freddie D. Demaisip">
+               <font>
+                  <Font name="Calibri Bold" size="32.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="80.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER">
+         <children>
+            <Label fx:id="lblEPhone" text="09100108962">
+               <font>
+                  <Font name="Calibri" size="32.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="150.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</StackPane>

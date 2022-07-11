@@ -1,0 +1,24 @@
+
+.form-asterisk {
+    -fx-font-weight: bold;
+    -fx-text-fill: #ff0000;
+}
+
+.form-group-title {
+    -fx-font-weight: bold;
+}
+
+.table-cell-align-center {
+    -fx-alignment: center;
+}
+
+.table-cell-align-right {
+    -fx-alignment: right;
+}
+.group-even {
+    -fx-background-color: white;
+}
+
+.group-odd {
+    -fx-background-color: derive(#999999, 80%);
+}

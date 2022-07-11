@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+    <database>
+        <version>1</version>
+        <host>localhost</host>
+        <port>3306</port>
+        <user>admin</user>
+        <password>admin</password>
+    </database>
+</settings>
