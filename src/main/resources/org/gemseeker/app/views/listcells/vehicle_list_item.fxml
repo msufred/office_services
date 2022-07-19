@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="8.0">
+         <children>
+            <Label fx:id="lblName" styleClass="list-vehicle-name" text="Vehicle Name" />
+            <Region maxHeight="2.0" styleClass="list-vehicle-region" HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblStatus" styleClass="list-vehicle-status" text="Active" />
+         </children>
+      </HBox>
+      <Label fx:id="lblPlateNo" text="MV 001" />
+   </children>
+   <padding>
+      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+   </padding>
+</VBox>
