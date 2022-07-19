@@ -12,6 +12,8 @@ public final class DBUtils {
             createOfficesTable(),
             createPositionsTable(),
             createEmployeesTable(),
+            createVehiclesTable(),
+            createVehicleTasksTable()
         };
     }
     
@@ -66,6 +68,34 @@ public final class DBUtils {
                 + "tin VARCHAR(100), "
                 + "gsis VARCHAR(100), "
                 + "PRIMARY KEY (id)"
+                + ")";
+    }
+    
+    public static String createVehiclesTable() {
+        return "CREATE TABLE IF NOT EXISTS vehicles ("
+                + "id INT NOT NULL AUTO_INCREMENT, "
+                + "name VARCHAR(255) NOT NULL, "
+                + "plate_no VARCHAR(10), "
+                + "status VARCHAR(100), "
+                + "PRIMARY KEY (id)"
+                + ")";
+    }
+    
+    public static String createVehicleTasksTable() {
+        return "CREATE TABLE IF NOT EXISTS vehicle_tasks ("
+                + "id INT NOT NULL AUTO_INCREMENT, "
+                + "date DATE NOT NULL, "
+                + "vehicle_id INT NOT NULL, "
+                + "driver VARCHAR(255), "
+                + "destination VARCHAR(255), "
+                + "distance DOUBLE DEFAULT 0, "
+                + "passenger VARCHAR(255), "
+                + "date_out DATE, "
+                + "date_in DATE, "
+                + "status VARCHAR(100), "
+                + "PRIMARY KEY (id), "
+                + "CONSTRAINT fk_vehicle_1 FOREIGN KEY (vehicle_id) REFERENCES vehicles (id) "
+                + "ON UPDATE CASCADE ON DELETE CASCADE"
                 + ")";
     }
 }

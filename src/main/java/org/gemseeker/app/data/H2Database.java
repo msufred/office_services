@@ -256,4 +256,85 @@ public class H2Database {
     }
     
     //==========================================================================
+    
+    public ArrayList<Vehicle> getAllVehicles() throws SQLException {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+        if (connection != null) {
+            try (Statement statement = connection.createStatement()) {
+                ResultSet rs = statement.executeQuery("SELECT * FROM vehicles");
+                while (rs.next()) {
+                    Vehicle v = new Vehicle();
+                    v.setId(rs.getInt(1));
+                    v.setName(rs.getString(2));
+                    v.setPlateNo(rs.getString(3));
+                    v.setStatus(rs.getString(4));
+                    vehicles.add(v);
+                }
+            }
+        }
+        return vehicles;
+    }
+    
+    //==========================================================================
+        
+    public ArrayList<VehicleTask> getVehicleTasksByVehicleId(int id) throws SQLException {
+        ArrayList<VehicleTask> tasks = new ArrayList<>();
+        if (connection != null) {
+            try (Statement statement = connection.createStatement()) {
+                String sql = String.format("SELECT * FROM vehicle_tasks WHERE vehicle_id='%d' LIMIT 1", id);
+                ResultSet rs = statement.executeQuery(sql);
+                if (rs.next()) {
+                    VehicleTask task = fetchVehicleTaskInfo(rs);
+                    tasks.add(task);
+                }
+            }
+        }
+        return tasks;
+    }
+    
+    public ArrayList<VehicleTask> getAllPendingAndActiveVehicleTasks() throws SQLException {
+        ArrayList<VehicleTask> tasks = new ArrayList<>();
+        if (connection != null) {
+            try (Statement statement = connection.createStatement()) {
+                String sql = "SELECT * FROM vehicle_tasks WHERE status='Pending' OR status='Active'";
+                ResultSet rs = statement.executeQuery(sql);
+                if (rs.next()) {
+                    VehicleTask task = fetchVehicleTaskInfo(rs);
+                    tasks.add(task);
+                }
+            }
+        }
+        return tasks;
+    }
+    
+    public VehicleTask getActiveAndPendingVehicleTaskByVehicleId(int id) throws SQLException {
+        if (connection != null) {
+            try (Statement statement = connection.createStatement()) {
+                String sql = String.format("SELECT * FROM vehicle_tasks WHERE "
+                        + "(vehicle_id='%d' AND status='Active') OR "
+                        + "(vehicle_id='%d' AND status='Pending') LIMIT 1", id, id);
+                ResultSet rs = statement.executeQuery(sql);
+                if (rs.next()) {
+                    return fetchVehicleTaskInfo(rs);
+                }
+            }
+        }
+        return null;
+    }
+    
+    private VehicleTask fetchVehicleTaskInfo(ResultSet rs) throws SQLException {
+        int index = 1;
+        VehicleTask vt = new VehicleTask();
+        vt.setId(rs.getInt(index++));
+        vt.setDate(rs.getDate(index++).toLocalDate());
+        vt.setVehicleId(rs.getInt(index++));
+        vt.setDriver(rs.getString(index++));
+        vt.setDestination(rs.getString(index++));
+        vt.setDistance(rs.getDouble(index++));
+        vt.setPassenger(rs.getString(index++));
+        vt.setDateOut(rs.getDate(index++).toLocalDate());
+        vt.setDateIn(rs.getDate(index++).toLocalDate());
+        vt.setStatus(rs.getString(index++));
+        return vt;
+    }
 }

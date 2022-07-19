@@ -22,3 +22,15 @@
 .group-odd {
     -fx-background-color: derive(#999999, 80%);
 }
+
+
+/* Vehicle List Item Styles */
+.list-vehicle-name {
+    -fx-font-weight: bold;
+}
+.list-vehicle-status {
+    -fx-font-style: italic;
+}
+.list-vehicle-region {
+    -fx-background-color: #cccccc;
+}

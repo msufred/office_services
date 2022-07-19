@@ -60,7 +60,7 @@
     <jar href="lib\xmlbeans-5.0.3.jar" size="2191828" download="eager" />
     <jar href="lib\xmlgraphics-commons-2.6.jar" size="674607" download="eager" />
     <jar href="lib\xmlsec-2.3.0.jar" size="1128579" download="eager" />
-    <jar href="office_services.jar" size="416750" download="eager" />
+    <jar href="office_services.jar" size="430026" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="org.gemseeker.app.Main"  name="office_services" />
   <update check="always"/>

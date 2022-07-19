@@ -128,6 +128,7 @@ public class MainWindow extends AbstractWindowController {
     public void onDispose() {
         // Dispose AbstracPanelControllers
         employeesPanel.onDispose();
+        vehiclesPanel.onDispose();
         
         // Dispose AbstractWindowControllers
         officesWindow.onDispose();

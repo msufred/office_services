@@ -10,6 +10,7 @@ public class VehicleTask extends DataEntry {
     
     public static final String STATUS_PENDING = "Pending";
     public static final String STATUS_ACTIVE = "Active";
+    public static final String STATUS_CANCELLED = "Cancelled";
     public static final String STATUS_DONE = "Done";
     
     private int id;
